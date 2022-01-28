@@ -1,0 +1,4 @@
+Hola soy un archivo de texto 232323,
+qué tal estás??
+muy bien ¿y tú?
+soy un texto metido de phpsoy un texto metido de phpsoy un texto metido de phpsoy un texto metido de phpsoy un texto metido de phpsoy un texto metido de phpsoy un texto metido de phpsoy un texto metido de php \nsoy un texto metido de php \n

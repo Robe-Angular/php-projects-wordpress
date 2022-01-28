@@ -1,0 +1,5 @@
+Stock
+1.-Mostrar datos del usuario para el admin
+2.-Restar del stock
+3.-Proteger ver pedidos
+

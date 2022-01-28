@@ -1,0 +1,40 @@
+<table>{% if tasks|length >= 1 %}
+    <tr>
+        <th>Tarea</th>
+        <th>Prioridad</th>
+        <th>Horas presupuestadas</th>
+        <th>Acciones</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>
+                {% if task.priority == 'high' %}
+                    Alta
+                {% elseif task.priority == 'medium' %}
+                    Media
+                {% elseif task.priority == 'low' %}
+                    Baja
+                {% endif %}
+            </td>
+            <td>{{ task.hours }}</td>
+            <td class="buttons">
+                <a class="btn-show" href="{{ path('task_detail', {'id':task.id}) }}">Ver</a>
+
+                {% if app.user != null and task.user.id == app.user.id %}
+                    <a class="btn-edit" href="{{ path('task_edit', {'id':task.id}) }}">Editar</a>
+                    <a class="btn-delete" href="{{ path('task_delete', {'id':task.id}) }}">Eliminar</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+This friendly message is coming from:
+<ul>
+    <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Master-php/proyecto-symfony/src/Controller/TaskController.php'|file_link(0) }}">src/Controller/TaskController.php</a></code></li>
+    <li>Your template at <code><a href="{{ 'C:/wamp64/www/Master-php/proyecto-symfony/templates/task/index.html.twig'|file_link(0) }}">templates/task/index.html.twig</a></code></li>
+</ul>
+{% else %}
+    <strong>No hay tareas disponibles en este momento</strong>
+    {% endif %}

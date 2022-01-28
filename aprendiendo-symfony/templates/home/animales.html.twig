@@ -1,0 +1,52 @@
+{% extends "layouts/master.html.twig" %}
+{% block titulo %}
+    Animales chidos
+{% endblock %}
+{% block cabecera %}
+    {{parent()}}
+    <h2>{{title}}</h2>
+{% endblock %}
+{% block contenido %}
+    {#
+    <hr>
+    <h1>{{name}}</h1>
+    <h2>{{title}}</h2>
+    <p>Tus apellidos son: {{apellidos}}</p>
+    <hr>  
+    #}
+    {% set perro = 'Pastor aleman' %}
+    <h4>{{perro}}</h4>
+    {{dump (animales)}}
+    {{animales[3]}}
+    {{dump (aves)}}
+    {{aves.tipo ~ ' - ' ~ aves.raza}}
+    
+    {# Condicional #}
+    {% if aves.tipo == 'palomo' %}
+        <h1>Cuidado un palomo volador</h1>
+    {% else %}
+        <h2>No hay palomos a la vista</h2>
+    {% endif %}
+    
+    {# bucle #}
+    {% if animales|length >= 0 %}
+        <ul>
+            {% for animal in animales %}
+                <li>
+                    {{animal}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% for i in 0..animales|length %}
+    {{i}}<br>
+    {% endfor %}
+    
+    {% if aves.color ends with 'ise' %}
+        <h1>Empieza por g</h1>
+    {% else %}
+        <h2>Nada</h1>
+    {% endif %}
+    {{include('partials/funciones.html.twig', {'nombre':'victorLaBichota'})}}
+    
+{% endblock %}
